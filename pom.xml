@@ -5,6 +5,9 @@
     <artifactId>json-data-generator</artifactId>
     <packaging>jar</packaging>
     <version>1.2.2-SNAPSHOT</version>
+    <name>${project.artifactId}</name>
+    <description>A robust, generic, streaming random json data generator for your data</description>
+    <url>https://github.com/acesinc/json-data-generator</url>
     
     <scm>
         <connection>scm:git:git://github.com/acesinc/json-data-generator.git</connection>
@@ -35,12 +38,17 @@
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
-            <version>2.0-rc1</version>
+            <version>2.6.1</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>2.0-rc1</version>
+            <version>2.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-1.2-api</artifactId>
+            <version>2.6.1</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -56,6 +64,11 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.1</version>
         </dependency>
         <dependency>
             <groupId>commons-io</groupId>
@@ -95,6 +108,11 @@
             </exclusions>
         </dependency>
         <dependency>
+            <groupId>com.github.cloudfoundry-community</groupId>
+            <artifactId>nats-client</artifactId>
+            <version>0.6.4</version>
+        </dependency>
+        <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>18.0</version>
@@ -105,6 +123,7 @@
             <version>4.10</version>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
     <repositories>
         <!-- These are set in the settings.xml to our nexus repo -->

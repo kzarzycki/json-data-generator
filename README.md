@@ -91,6 +91,23 @@ A File Producer sends json events to a file. One event will be written to each f
 
 The File Logger will attempt to create the directory specified by `output.directory`. 
 
+**HTTP POST**
+
+A HTTP POST Producer sends json events to a URL as the Request Body. Configure it like so:
+
+```
+{
+    "type": "http-post",
+    "url": "http://localhost:8050/ingest"
+}
+```
+
+If you need to send data to an HTTPS endpoint that required client certificates, you can provide the configuration of those certificates on the commandline using the `javax.net.ssl.*` properties. An example might be:
+
+```
+java -Djavax.net.ssl.trustStore=/path/to/trustsore.jks -Djavax.net.ssl.keyStore=/path/to/user/cert/mycert.p12 -Djavax.net.ssl.keyStoreType=PKCS12 -Djavax.net.ssl.keyStorePassword=password -jar json-data-generator-1.2.2-SNAPSHOT.jar mySimConfig.json
+```
+
 **Kafka**
 
 A Kafka Producer sends json events to the specified Kafka broker and topic as a String. Configure it like so:
@@ -132,6 +149,20 @@ Would become
 	"array[1].element2": "two"
 }
 ```
+**NATS**
+
+A nats logger sends json events to gnatsd broker specifed in the config. The following example shows a sample config that sends json events to a locally running NATS broker listening on the default NATS port.
+
+```
+{
+    "type": "nats",
+    "broker.server": "127.0.0.1",
+    "broker.port": 4222,
+    "topic": "logevent",
+    "flatten": false
+}
+```
+Note that `flatten` has the same effect as the option in the kafka producer.
 
 **Tranquility**
 
